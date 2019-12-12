@@ -23,10 +23,11 @@ TEST(topology_sort, test_5_nodes) {
 
     DirectedGraph graph(edges, sizeof(edges)/sizeof(edges[0]));
     auto v = graph.topologySort();
-    vector<int> ans1{0, 1, 3, 2, 4,};
-    vector<int> ans2{0, 1, 2, 3, 4,};
 
-    ASSERT_TRUE((*v)==ans1 || (*v)==ans2);
+    vector<int> ans1{0, 1, 3, 2, 4};
+    vector<int> ans2{0, 1, 2, 3, 4};
+
+    ASSERT_TRUE(graph.sort==ans1 || graph.sort==ans2);
 
     delete v;
 }
@@ -46,7 +47,7 @@ TEST(topology_sort, test_2_nodes) {
 
     delete v;
 }
-/*
+
 TEST(topology_sort, test_8_nodes) {
     Edge edges[] =
             {
@@ -62,7 +63,7 @@ TEST(topology_sort, test_8_nodes) {
 
     ASSERT_TRUE((*v)==ans);
 }
-*/
+
 TEST(topology_sort, test_1_nodes) {
     Edge edges[] = {};
 

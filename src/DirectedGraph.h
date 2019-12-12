@@ -22,6 +22,7 @@ private:
     // Here a node B is considered a "neighbour" of a node A when there is a edge that goes from A to B
     map<int, SingleLinkedList<int> *> nodes;
 
+
     void topologySort(int val, LinkedStack<int> &, set<int> &);
 
     bool inSet(set<int> & theSet, int val) {
@@ -42,6 +43,8 @@ public:
     virtual ~DirectedGraph();
 
     vector<int> *topologySort();
+
+    vector<int> sort;
 };
 
 #endif //STACK_DIRECTEDGRAPH_H

@@ -46,14 +46,20 @@ vector<int> *DirectedGraph::topologySort() {
 	    }
 	}
 
-	vector<int> returnVector;
-
 	while(!theStack.isEmpty()) {
-	    returnVector.push_back(theStack.peek());
+	    this->sort.push_back(theStack.peek());
 	    theStack.pop();
 	}
 
-	return new vector<int>();
+	for (int k = 0; k < this->sort.size(); k++) {
+	    std::cout << this->sort[k] << ", ";
+	}
+
+	std::cout << std::endl;
+
+
+
+	return new vector<int>;
 }
 
 void DirectedGraph::topologySort(int val, LinkedStack<int> & theStack, set<int> & theSet) {
@@ -66,4 +72,5 @@ void DirectedGraph::topologySort(int val, LinkedStack<int> & theStack, set<int> 
             topologySort(i->first, theStack, theSet);
         }
 
+    theStack.push(val);
 }
