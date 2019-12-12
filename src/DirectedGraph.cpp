@@ -38,11 +38,11 @@ vector<int> *DirectedGraph::topologySort() {
 
 	set<int> theSet;
 
+    map<int, SingleLinkedList<int> *>::iterator it;
 
-	for (int i = 0; i < this->nodes.size(); i++) {
-	    auto pos = theSet.find(i);
-	    if (*pos > theSet.size()) {
-	        topologySort(i, theStack, theSet);
+	for (it = this->nodes.begin(); it != this->nodes.end(); ++it) {
+	    if (!inSet(theSet, it->first)) {
+	        topologySort(it->first, theStack, theSet);
 	    }
 	}
 
@@ -59,5 +59,11 @@ vector<int> *DirectedGraph::topologySort() {
 void DirectedGraph::topologySort(int val, LinkedStack<int> & theStack, set<int> & theSet) {
 
     theSet.insert(val);
+
+    map<int, SingleLinkedList<int> *>::iterator i;
+    for (i = this->nodes.begin(); i != this->nodes.end(); ++i)
+        if (!inSet(theSet, i->first)) {
+            topologySort(i->first, theStack, theSet);
+        }
 
 }

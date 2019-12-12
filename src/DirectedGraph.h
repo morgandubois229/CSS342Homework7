@@ -24,6 +24,16 @@ private:
 
     void topologySort(int val, LinkedStack<int> &, set<int> &);
 
+    bool inSet(set<int> & theSet, int val) {
+        set<int>::iterator i;
+        for (i = theSet.begin(); i != theSet.end(); ++i) {
+            if (*i == val) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 public:
     explicit DirectedGraph(Edge *edges, int size);
 
