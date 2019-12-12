@@ -62,6 +62,8 @@ TEST(topology_sort, test_8_nodes) {
     vector<int> ans{7, 6, 5, 4, 3, 2, 1, 0};
 
     ASSERT_TRUE(graph.sort==ans);
+
+    delete v;
 }
 
 TEST(topology_sort, test_1_nodes) {

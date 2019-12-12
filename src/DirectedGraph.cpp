@@ -54,7 +54,7 @@ vector<int> *DirectedGraph::topologySort() {
 
     bool doFlip = false;
 
-	
+
     for(int i = 0; i < this->nodes.size(); i++) {
         vector<int> aVector = this->nodes[i]->toVector();
         for (int k = 0; k < aVector.size(); k++) {
@@ -68,6 +68,8 @@ vector<int> *DirectedGraph::topologySort() {
     if (doFlip) {
         std::reverse(this->sort.begin(), this->sort.end());
     }
+
+
 
 	return new vector<int>;
 }
