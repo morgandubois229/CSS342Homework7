@@ -48,14 +48,16 @@ vector<int> *DirectedGraph::topologySort() {
 
 	vector<int> returnVector;
 
-	set<int>::iterator it;
-	for (it = theSet.begin(); it != theSet.end(); it++) {
-	    returnVector.push_back(*it);
+	while(!theStack.isEmpty()) {
+	    returnVector.push_back(theStack.peek());
+	    theStack.pop();
 	}
 
 	return new vector<int>();
 }
 
-void topologySort(int val, LinkedStack<int> &, set<int> &) {
-    
+void DirectedGraph::topologySort(int val, LinkedStack<int> & theStack, set<int> & theSet) {
+
+    theSet.insert(val);
+
 }
