@@ -31,8 +31,15 @@ void DirectedGraph::printGraph() {
 
 vector<int> *DirectedGraph::topologySort() {
 	// homework
-  //test
-	// the return here is a placeholder. replace with your own code 
+	// the return here is a placeholder. replace with your own code
+
+    
+
 	return new vector<int>();
 }
+
+void topologySort(int val, LinkedStack<int> &, set<int> &) {
+
+}
+
 
