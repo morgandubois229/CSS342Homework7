@@ -43,7 +43,7 @@ TEST(topology_sort, test_2_nodes) {
     auto v = graph.topologySort();
     vector<int> ans{1, 0};
 
-    ASSERT_TRUE((*v)==ans);
+    ASSERT_TRUE(graph.sort==ans);
 
     delete v;
 }
@@ -61,7 +61,7 @@ TEST(topology_sort, test_8_nodes) {
     auto v = graph.topologySort();
     vector<int> ans{7, 6, 5, 4, 3, 2, 1, 0};
 
-    ASSERT_TRUE((*v)==ans);
+    ASSERT_TRUE(graph.sort==ans);
 }
 
 TEST(topology_sort, test_1_nodes) {

@@ -1,5 +1,6 @@
 #include "DirectedGraph.h"
 #include <iostream>
+#include <algorithm>
 
 DirectedGraph::DirectedGraph(Edge *edges, int size) {
     for (int i = 0; i < size; i++) {
@@ -51,13 +52,22 @@ vector<int> *DirectedGraph::topologySort() {
 	    theStack.pop();
 	}
 
-	for (int k = 0; k < this->sort.size(); k++) {
-	    std::cout << this->sort[k] << ", ";
-	}
+    bool doFlip = false;
 
-	std::cout << std::endl;
+	
+    for(int i = 0; i < this->nodes.size(); i++) {
+        vector<int> aVector = this->nodes[i]->toVector();
+        for (int k = 0; k < aVector.size(); k++) {
+            if (this->sort[0] == aVector[k]) {
+                doFlip = true;
 
+            }
+        }
+    }
 
+    if (doFlip) {
+        std::reverse(this->sort.begin(), this->sort.end());
+    }
 
 	return new vector<int>;
 }
