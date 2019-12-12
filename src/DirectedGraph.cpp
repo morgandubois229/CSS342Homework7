@@ -1,4 +1,5 @@
 #include "DirectedGraph.h"
+#include <iostream>
 
 DirectedGraph::DirectedGraph(Edge *edges, int size) {
     for (int i = 0; i < size; i++) {
@@ -33,13 +34,28 @@ vector<int> *DirectedGraph::topologySort() {
 	// homework
 	// the return here is a placeholder. replace with your own code
 
-    
+	LinkedStack<int> theStack;
+
+	set<int> theSet;
+
+
+	for (int i = 0; i < this->nodes.size(); i++) {
+	    auto pos = theSet.find(i);
+	    if (*pos > theSet.size()) {
+	        topologySort(i, theStack, theSet);
+	    }
+	}
+
+	vector<int> returnVector;
+
+	set<int>::iterator it;
+	for (it = theSet.begin(); it != theSet.end(); it++) {
+	    returnVector.push_back(*it);
+	}
 
 	return new vector<int>();
 }
 
 void topologySort(int val, LinkedStack<int> &, set<int> &) {
-
+    
 }
-
-

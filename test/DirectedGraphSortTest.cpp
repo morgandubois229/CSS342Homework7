@@ -46,7 +46,7 @@ TEST(topology_sort, test_2_nodes) {
 
     delete v;
 }
-
+/*
 TEST(topology_sort, test_8_nodes) {
     Edge edges[] =
             {
@@ -62,7 +62,7 @@ TEST(topology_sort, test_8_nodes) {
 
     ASSERT_TRUE((*v)==ans);
 }
-
+*/
 TEST(topology_sort, test_1_nodes) {
     Edge edges[] = {};
 
